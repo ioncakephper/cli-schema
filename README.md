@@ -2,7 +2,8 @@
 
 [![NPM Version](https://img.shields.io/npm/v/cli-schema.svg)](https://www.npmjs.com/package/cli-schema)
 [![Build Status](https://github.com/ioncakephper/cli-schema/actions/workflows/validate.yml/badge.svg)](https://github.com/ioncakephper/cli-schema/actions/workflows/validate.yml)
-[![License](https://img.shields.io/npm/l/cli-schema.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Open Issues](https://img.shields.io/github/issues/ioncakephper/cli-schema.svg)](https://github.com/ioncakephper/cli-schema/issues)
 
 ### The Vision: A Universal Standard for Command-Line Interfaces
 
