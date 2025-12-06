@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-const { validateYaml } = require("../src/validate");
+const { validateYaml } = require('../src/validate');
 
 const args = process.argv.slice(2);
 
 if (args.length === 0) {
-  console.error("Usage: cli-validate <file.yml>");
+  console.error('Usage: cli-validate <file.yml>');
   process.exit(1);
 }
 

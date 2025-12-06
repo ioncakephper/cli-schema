@@ -1,6 +1,6 @@
 cli:
-  name: "demo-init"
-  description: "Demo CLI initializer"
+  name: 'demo-init'
+  description: 'Demo CLI initializer'
   options:
     - name: verbose
       alias: v
@@ -13,23 +13,23 @@ cli:
 
     - name: quiet
       alias: q
-      description: enable quiet mode     
+      description: enable quiet mode
 
   commands:
     - name: init
       alias: i
-      description: "Initialize configuration file"
+      description: 'Initialize configuration file'
       arguments:
         - name: configFile
-          description: "Configuration filename to create"
+          description: 'Configuration filename to create'
           type: string
           required: false
           default:
-            fn: "program => `.${program.name()}rc.json`"
+            fn: 'program => `.${program.name()}rc.json`'
       options:
         - name: force
           alias: f
-          description: "Override writing configuration file"
+          description: 'Override writing configuration file'
           type: boolean
           default:
             value: false

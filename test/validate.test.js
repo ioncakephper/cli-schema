@@ -1,11 +1,11 @@
-const { validateYaml } = require("../src/validate");
+const { validateYaml } = require('../src/validate');
 
-test("valid demo-init.yml passes validation", () => {
-  const result = validateYaml("./examples/demo-init.yml");
+test('valid demo-init.yml passes validation', () => {
+  const result = validateYaml('./examples/demo-init.yml');
   expect(result.valid).toBe(true);
 });
 
-test("invalid schema fails validation", () => {
+test('invalid schema fails validation', () => {
   const badYaml = `
 cli:
   name: "demo-init"
@@ -18,6 +18,6 @@ cli:
             value: "config.json"
             fromConfig: "files.default"
   `;
-  const result = validateYaml(badYaml, {isFile: false});
+  const result = validateYaml(badYaml, { isFile: false });
   expect(result.valid).toBe(false);
 });

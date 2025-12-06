@@ -22,7 +22,10 @@
   },
   "scripts": {
     "test": "jest",
-    "validate": "cli-validate examples/demo-init.yml"
+    "validate": "cli-validate examples/demo-init.yml",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix"
   },
   "dependencies": {
     "ajv": "^8.12.0",
@@ -30,7 +33,12 @@
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
-    "jest": "^29.0.0"
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.5.0",
+    "jest": "^29.0.0",
+    "prettier": "^3.7.4"
   },
   "license": "MIT",
   "author": {

@@ -1,6 +1,6 @@
-name: "📖 Documentation Improvement"
-description: "Suggest an improvement to the documentation."
-labels: ["documentation"]
+name: '📖 Documentation Improvement'
+description: 'Suggest an improvement to the documentation.'
+labels: ['documentation']
 body:
   - type: markdown
     attributes:
@@ -10,8 +10,8 @@ body:
   - type: input
     id: url
     attributes:
-      label: "Affected Document"
-      description: "Which page or section of the documentation needs improvement? (e.g., README.md, CONTRIBUTING.md)"
+      label: 'Affected Document'
+      description: 'Which page or section of the documentation needs improvement? (e.g., README.md, CONTRIBUTING.md)'
       placeholder: "e.g., README.md, in the 'Scaling with Complexity' section."
     validations:
       required: true
@@ -19,16 +19,16 @@ body:
   - type: textarea
     id: issue
     attributes:
-      label: "What is the issue?"
+      label: 'What is the issue?'
       description: "Describe the problem with the current documentation (e.g., it's unclear, outdated, or contains a typo)."
-      placeholder: "The example code for programmatic validation is missing a semicolon."
+      placeholder: 'The example code for programmatic validation is missing a semicolon.'
     validations:
       required: true
 
   - type: textarea
     id: suggestion
     attributes:
-      label: "What is your suggested improvement?"
-      description: "Provide the corrected or improved text, code example, or explanation."
+      label: 'What is your suggested improvement?'
+      description: 'Provide the corrected or improved text, code example, or explanation.'
     validations:
       required: true

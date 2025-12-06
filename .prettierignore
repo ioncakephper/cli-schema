@@ -1,0 +1,17 @@
+# Ignore artifacts:
+node_modules
+coverage
+dist
+build
+.nyc_output
+lib-cov
+
+# Ignore package manager files:
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore generated files:
+*.log
+*.tgz
+report.*.json

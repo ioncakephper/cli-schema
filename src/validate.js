@@ -1,9 +1,9 @@
-const fs = require("fs");
-const yaml = require("js-yaml");
-const Ajv = require("ajv");
-const addFormats = require("ajv-formats");
+const fs = require('fs');
+const yaml = require('js-yaml');
+const Ajv = require('ajv');
+const addFormats = require('ajv-formats');
 
-const schema = require("../schema/cli.schema.json");
+const schema = require('../schema/cli.schema.json');
 
 const ajv = new Ajv({ allErrors: true, strict: false });
 addFormats(ajv);
@@ -20,9 +20,9 @@ const validate = ajv.compile(schema);
  * @returns {{valid: boolean, errors: import("ajv").ErrorObject[]}} An object containing a `valid` boolean and an `errors` array.
  */
 function validateYaml(input, options = { isFile: true }) {
-  const {isFile} = options;
+  const { isFile } = options;
   const data = isFile
-    ? yaml.load(fs.readFileSync(input, "utf8"))
+    ? yaml.load(fs.readFileSync(input, 'utf8'))
     : yaml.load(input);
   const valid = validate(data);
   return { valid, errors: validate.errors || [] };

@@ -14,10 +14,10 @@ By defining the structure of a CLI in a simple, standardized YAML file, we can u
 
 Adopting a schema-first, declarative approach for your CLI offers a significant return on investment by:
 
--   **Drastically Reducing Boilerplate:** Define your commands, arguments, and options in YAML. Let the ecosystem handle the parsing, validation, and help text generation.
--   **Enforcing Consistency:** A single source of truth ensures that your CLI's behavior is consistent and predictable, reducing bugs and user confusion.
--   **Enabling Automation:** Once your CLI is defined in a machine-readable format, you can automate documentation generation, create client libraries, and even build GUIs on top of your existing CLI logic.
--   **Decoupling Logic from Definition:** Your core application logic remains separate from the CLI definition, making your code cleaner, easier to test, and simpler to refactor.
+- **Drastically Reducing Boilerplate:** Define your commands, arguments, and options in YAML. Let the ecosystem handle the parsing, validation, and help text generation.
+- **Enforcing Consistency:** A single source of truth ensures that your CLI's behavior is consistent and predictable, reducing bugs and user confusion.
+- **Enabling Automation:** Once your CLI is defined in a machine-readable format, you can automate documentation generation, create client libraries, and even build GUIs on top of your existing CLI logic.
+- **Decoupling Logic from Definition:** Your core application logic remains separate from the CLI definition, making your code cleaner, easier to test, and simpler to refactor.
 
 ## Installation
 
@@ -63,22 +63,22 @@ While the examples show a simple command, the schema is designed to handle enter
 
 ### `validateYaml(input, [options])`
 
--   **Description:** Validates a YAML document against the canonical CLI schema.
--   **Parameters:**
-    -   `input` (`string`): The YAML document as a string or a file path.
-    -   `options` (`object`, optional):
-        -   `isFile` (`boolean`): Set to `true` if `input` is a file path. Defaults to `true`.
--   **Returns:** `object` - An object containing a `valid` boolean and an `errors` array.
+- **Description:** Validates a YAML document against the canonical CLI schema.
+- **Parameters:**
+  - `input` (`string`): The YAML document as a string or a file path.
+  - `options` (`object`, optional):
+    - `isFile` (`boolean`): Set to `true` if `input` is a file path. Defaults to `true`.
+- **Returns:** `object` - An object containing a `valid` boolean and an `errors` array.
 
 ## Vision & Roadmap: Building the Ecosystem
 
 A schema is just the foundation. The true power will come from the ecosystem built around it. This is where we are headed:
 
--   **Code Generators:** Create CLI boilerplate in multiple languages (Node.js, Python, Go) directly from the schema.
--   **Documentation Generators:** Automatically generate professional, versioned web documentation and man pages.
--   **IDE Integration:** Provide real-time validation, autocompletion, and tooltips for CLI definition files in editors like VS Code.
--   **Dynamic GUI Generation:** Create simple graphical interfaces for your CLI on the fly.
--   **CLI Discovery & Interoperability:** Enable tools to programmatically understand and interact with each other.
+- **Code Generators:** Create CLI boilerplate in multiple languages (Node.js, Python, Go) directly from the schema.
+- **Documentation Generators:** Automatically generate professional, versioned web documentation and man pages.
+- **IDE Integration:** Provide real-time validation, autocompletion, and tooltips for CLI definition files in editors like VS Code.
+- **Dynamic GUI Generation:** Create simple graphical interfaces for your CLI on the fly.
+- **CLI Discovery & Interoperability:** Enable tools to programmatically understand and interact with each other.
 
 We are actively seeking contributors to help build this ecosystem.
 
