@@ -1,0 +1,39 @@
+name: "🚀 Feature Request"
+description: "Suggest an idea or enhancement for this project."
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature! Your ideas are valuable for improving the project.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Is your feature request related to a problem?"
+      description: "A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]"
+      placeholder: "e.g., It's difficult to integrate the schema with my custom build tool because..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Describe the solution you'd like"
+      description: "A clear and concise description of what you want to happen."
+      placeholder: "I would like a new API method `validateObject()` that accepts a JavaScript object directly."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Describe alternatives you've considered"
+      description: "A clear and concise description of any alternative solutions or features you've considered."
+      placeholder: "I considered converting my object to a YAML string first, but that adds unnecessary overhead."
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: "Add any other context or screenshots about the feature request here."

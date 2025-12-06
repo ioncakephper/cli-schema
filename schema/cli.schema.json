@@ -1,0 +1,125 @@
+{
+  "$id": "https://example.com/cli.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CLI Schema",
+  "description": "Canonical schema for declarative CLI definitions",
+  "type": "object",
+  "properties": {
+    "cli": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "sortCommands": { "type": "boolean" },
+        "sortOptions": { "type": "boolean" },
+        "showGlobalOptions": { "type": "boolean" },
+        "defaultConfigFile": { "type": "string" },
+        "fallbackConfig": { "type": "object" },
+
+        "arguments": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/argument" }
+        },
+        "options": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/option" }
+        },
+        "commands": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/command" }
+        }
+      },
+      "required": ["name"]
+    }
+  },
+
+  "definitions": {
+    "argument": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "enum": ["string", "number", "boolean"] },
+        "required": { "type": "boolean" },
+        "variadic": { "type": "boolean" },
+        "default": { "$ref": "#/definitions/default" }
+      },
+      "required": ["name", "type"]
+    },
+
+    "option": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "alias": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "enum": ["string", "number", "boolean"] },
+        "variadic": { "type": "boolean" },
+        "choices": {
+          "type": "array",
+          "items": { "type": ["string", "number"] }
+        },
+        "range": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "number" },
+            "max": { "type": "number" }
+          },
+          "additionalProperties": false
+        },
+        "default": { "$ref": "#/definitions/default" },
+        "arguments": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/argument" }
+        }
+      },
+      "required": ["name"]
+    },
+
+    "command": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "alias": { "type": "string" },
+        "description": { "type": "string" },
+        "arguments": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/argument" }
+        },
+        "options": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/option" }
+        },
+        "commands": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/command" }
+        }
+      },
+      "required": ["name"]
+    },
+
+    "default": {
+      "type": "object",
+      "description": "Default value definition",
+      "properties": {
+        "value": {
+          "type": ["string", "number", "boolean", "array", "object"]
+        },
+        "fromConfig": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_.]+$"
+        },
+        "fn": {
+          "type": "string",
+          "pattern": "^(.*=>.*)$"
+        }
+      },
+      "oneOf": [
+        { "required": ["value"] },
+        { "required": ["fromConfig"] },
+        { "required": ["fn"] }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "cli-schema",
+  "version": "1.0.0",
+  "description": "Canonical JSON Schema for declarative CLI definitions",
+  "keywords": [
+    "cli",
+    "json-schema",
+    "schema",
+    "validation",
+    "validator",
+    "yaml",
+    "declarative"
+  ],
+  "files": [
+    "bin",
+    "src",
+    "schema"
+  ],
+  "main": "src/validate.js",
+  "bin": {
+    "cli-validate": "./bin/cli-validate.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "validate": "cli-validate examples/demo-init.yml"
+  },
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Ion Gireada",
+    "email": "shytiger@yahoo.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ioncakephper/cli-schema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ioncakephper/cli-schema/issues"
+  },
+  "homepage": "https://github.com/ioncakephper/cli-schema#readme"
+}

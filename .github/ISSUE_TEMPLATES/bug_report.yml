@@ -1,0 +1,67 @@
+name: "🐞 Bug Report"
+description: "Report a bug to help us improve the project."
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to file a bug report. Please provide as much detail as possible.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Bug Description"
+      description: "A clear and concise description of what the bug is."
+      placeholder: "e.g., The CLI crashes when I use the '--verbose' flag."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Steps to Reproduce"
+      description: "Please provide detailed steps to reproduce the behavior."
+      placeholder: |
+        1. Run `npx cli-validate my-file.yml`
+        2. With the following content in `my-file.yml`: ...
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected Behavior"
+      description: "A clear and concise description of what you expected to happen."
+      placeholder: "I expected the validation to pass without errors."
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Logs and Screenshots"
+      description: "If applicable, add any logs, screenshots, or other relevant output to help explain your problem."
+
+  - type: input
+    id: version
+    attributes:
+      label: "Version"
+      description: "What version of the project are you running?"
+      placeholder: "e.g., 1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: "Operating System"
+      description: "What operating system are you using?"
+      multiple: true
+      options:
+        - "Windows"
+        - "macOS"
+        - "Linux"
+        - "Other"
+    validations:
+      required: true
