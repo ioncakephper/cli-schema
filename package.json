@@ -18,9 +18,10 @@
   ],
   "main": "src/validate.js",
   "bin": {
-    "cli-validate": "bin/validate-cli.js"
+    "cli-schema": "bin/validate-cli.js"
   },
   "scripts": {
+    "start": "node ./bin/validate-cli.js",
     "test": "jest",
     "validate": "node ./bin/validate-cli.js examples/demo-init.yml",
     "format": "prettier --write .",
@@ -30,6 +31,7 @@
   "dependencies": {
     "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
+    "commander": "^14.0.2",
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
