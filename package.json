@@ -1,6 +1,6 @@
 {
   "name": "cli-schema",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Canonical JSON Schema for declarative CLI definitions",
   "keywords": [
     "cli",
@@ -18,11 +18,11 @@
   ],
   "main": "src/validate.js",
   "bin": {
-    "cli-validate": "./bin/cli-validate.js"
+    "cli-validate": "./bin/validate-cli.js"
   },
   "scripts": {
     "test": "jest",
-    "validate": "cli-validate examples/demo-init.yml",
+    "validate": "node ./bin/validate-cli.js examples/demo-init.yml",
     "format": "prettier --write .",
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix"
