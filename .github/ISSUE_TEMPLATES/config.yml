@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a Question or Discuss
+    url: https://github.com/ioncakephper/cli-schema/discussions
+    about: Please use GitHub Discussions for questions and support requests.
+    
