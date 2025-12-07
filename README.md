@@ -34,10 +34,10 @@ This package can be used both as a command-line tool for quick validation and as
 
 ### CLI Validation
 
-The package includes a `cli-validate` executable for instantly validating your CLI definition file.
+The package includes an executable for instantly validating your CLI definition file.
 
 ```bash
-npx cli-validate path/to/your/cli-definition.yml
+npx cli-schema path/to/your/cli-definition.yml
 ```
 
 ### Programmatic Validation
