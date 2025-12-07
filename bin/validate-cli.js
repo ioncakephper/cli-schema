@@ -9,15 +9,28 @@ if (args.length === 0) {
   process.exit(1);
 }
 
-const file = args[0];
-const result = validateYaml(file);
+const originalPath = args[0];
+const absolutePath = path.resolve(originalPath);
 
-if (result.valid) {
-  console.log(`✅ ${file} is valid against cli.schema.json`);
-} else {
-  console.error(`❌ ${file} failed validation:`);
-  result.errors.forEach((err) => {
-    console.error(`- ${err.instancePath} ${err.message}`);
-  });
+try {
+  const result = validateYaml(absolutePath);
+
+  if (result.valid) {
+    console.log(`✅ ${originalPath} is valid against cli.schema.json`);
+  } else {
+    console.error(`❌ ${originalPath} failed validation:`);
+    result.errors.forEach((err) => {
+      console.error(`- ${err.instancePath || 'Schema'} ${err.message}`);
+    });
+    process.exit(1);
+  }
+} catch (error) {
+  if (error.code === 'ENOENT') {
+    console.error(`Error: Cannot find or read the file at '${originalPath}'.`);
+    console.error(`Attempted to resolve to: ${absolutePath}`);
+  } else {
+    console.error('An unexpected error occurred:');
+    console.error(error.message);
+  }
   process.exit(1);
 }
