@@ -34,10 +34,22 @@ This package can be used both as a command-line tool for quick validation and as
 
 ### CLI Validation
 
-The package includes an executable for instantly validating your CLI definition file.
+The package includes a `cli-schema` executable for instantly validating one or more YAML definition files.
 
 ```bash
-npx cli-schema path/to/your/cli-definition.yml
+# Validate a single file
+npx cli-schema path/to/your/file.yml
+
+# Validate multiple files
+npx cli-schema file1.yml file2.yml
+```
+
+Run the command with no arguments or with the `--help` flag to see the full list of options and examples.
+
+On success, you will see output similar to this:
+
+```plaintext
+✅ path/to/your/file.yml is valid against cli.schema.json
 ```
 
 ### Programmatic Validation
