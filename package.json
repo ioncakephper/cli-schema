@@ -18,7 +18,7 @@
   ],
   "main": "src/validate.js",
   "bin": {
-    "cli-validate": "./bin/validate-cli.js"
+    "cli-validate": "bin/validate-cli.js"
   },
   "scripts": {
     "test": "jest",
