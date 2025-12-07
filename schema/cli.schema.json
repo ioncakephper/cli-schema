@@ -37,24 +37,28 @@
     "argument": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
+        "name": { "type": "string", "pattern": "^[a-zA-Z](?:-?[a-zA-Z])*$" },
         "description": { "type": "string" },
-        "type": { "enum": ["string", "number", "boolean"] },
+        "type": {
+          "enum": ["string", "number", "boolean"],
+          "default": "string"
+        },
         "required": { "type": "boolean" },
         "variadic": { "type": "boolean" },
         "default": { "$ref": "#/definitions/default" }
       },
-      "required": ["name", "type"]
+      "required": ["name"]
     },
 
     "option": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
-        "alias": { "type": "string" },
+        "name": { "type": "string", "pattern": "^[a-zA-Z](?:-?[a-zA-Z])*$" },
+        "short": { "type": "string", "pattern": "^[a-zA-Z]$" },
         "description": { "type": "string" },
         "type": { "enum": ["string", "number", "boolean"] },
         "variadic": { "type": "boolean" },
+        "required": { "type": "boolean" },
         "choices": {
           "type": "array",
           "items": { "type": ["string", "number"] }
@@ -73,14 +77,15 @@
           "items": { "$ref": "#/definitions/argument" }
         }
       },
-      "required": ["name"]
+      "required": ["name"],
+      "additionalProperties": false
     },
 
     "command": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
-        "alias": { "type": "string" },
+        "name": { "type": "string", "pattern": "^[a-zA-Z](?:-?[a-zA-Z])*$" },
+        "alias": { "type": "string", "pattern": "^[a-zA-Z](?:-?[a-zA-Z])*$" },
         "description": { "type": "string" },
         "arguments": {
           "type": "array",

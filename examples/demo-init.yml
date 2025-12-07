@@ -3,16 +3,18 @@ cli:
   description: 'Demo CLI initializer'
   options:
     - name: verbose
-      alias: v
+      short: v
       description: enable verbose mode
+
+      # use required: true, the verbose option must appear in command line
       required: false
 
     - name: debug
-      alias: d
+      # alias: d
       description: enable debug mode
 
     - name: quiet
-      alias: q
+      # alias: q
       description: enable quiet mode
 
   commands:
@@ -22,14 +24,14 @@ cli:
       arguments:
         - name: configFile
           description: 'Configuration filename to create'
-          type: string
-          required: false
+          # type: string
+          # required: false
           default:
             fn: 'program => `.${program.name()}rc.json`'
       options:
         - name: force
-          alias: f
+          # alias: f
           description: 'Override writing configuration file'
-          type: boolean
+          # type: boolean
           default:
             value: false

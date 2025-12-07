@@ -1,0 +1,68 @@
+# Defines the 'npm install', 'npm init', and 'npm version' commands using the canonical CLI schema.
+# This serves as a practical example of describing common Node.js CLI operations.
+cli:
+  name: npm
+  description: Node Package Manager
+
+  commands:
+    - name: install
+      alias: i
+      description: Install a package or packages.
+      arguments:
+        - name: packages
+          description: Optional list of packages to install.
+          type: string
+          required: false # This is equivalent to [pkg...]
+          variadic: true # Allows multiple package names
+      options:
+        - name: save
+          short: S
+          description: Package will appear in your dependencies.
+          type: boolean
+        - name: save-dev
+          short: D
+          description: Package will appear in your devDependencies.
+          type: boolean
+        - name: global
+          short: g
+          description: Installs package globally.
+          type: boolean
+        - name: force
+          short: f
+          description: Forces fetching remote resources even if a local copy exists.
+          type: boolean
+        - name: omit
+          description: Exclude certain dependency types (e.g., dev).
+          type: string
+          # Could add choices: ['dev', 'peer', 'optional'] if we wanted to be stricter.
+        - name: dry-run
+          description: Don't make actual changes.
+          type: boolean
+    - name: init
+      description: Create a package.json file.
+      options:
+        - name: yes
+          short: y
+          description: Skip all prompts and use default values.
+          type: boolean
+        - name: scope
+          description: Scope to use for new package.
+          type: string
+        - name: force
+          short: f
+          description: Force init even if a package.json already exists.
+          type: boolean
+    - name: version
+      description: Bump package version.
+      arguments:
+        - name: newversion
+          description: The new version (e.g., 1.0.0, major, minor, patch).
+          type: string
+          required: false
+      options:
+        - name: no-git-tag-version
+          description: Prevent tagging version in git.
+          type: boolean
+        - name: preid
+          description: Identifier for a prerelease version.
+          type: string

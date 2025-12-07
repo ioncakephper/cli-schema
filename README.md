@@ -22,10 +22,44 @@ Adopting a schema-first, declarative approach for your CLI offers a significant 
 
 ## Installation
 
-Install the package from npm:
+To get started with `cli-schema`, you have several options:
+
+### Install via npm (Recommended)
+
+To install the package for use in your project:
 
 ```bash
 npm install cli-schema
+```
+
+To install it globally, making the `cli-schema` command available everywhere on your system:
+
+```bash
+npm install -g cli-schema
+```
+
+### Install via Yarn
+
+If you prefer Yarn, you can install the package for use in your project:
+
+```bash
+yarn add cli-schema
+```
+
+To install it globally:
+
+```bash
+yarn global add cli-schema
+```
+
+### Clone the Repository
+
+If you want to contribute to the project or need the source code directly:
+
+```bash
+git clone https://github.com/ioncakephper/cli-schema.git
+cd cli-schema
+npm install # Or yarn install
 ```
 
 ## Usage
@@ -78,10 +112,48 @@ While the examples show a simple command, the schema is designed to handle enter
 
 - **Description:** Validates a YAML document against the canonical CLI schema.
 - **Parameters:**
-  - `input` (`string`): The YAML document as a string or a file path.
+  - `input` (`string`): The YAML document as a string or a path to a file.
   - `options` (`object`, optional):
     - `isFile` (`boolean`): Set to `true` if `input` is a file path. Defaults to `true`.
 - **Returns:** `object` - An object containing a `valid` boolean and an `errors` array.
+
+## Schema Reference
+
+The `cli-schema` defines the structure for your CLI definition file. Here are the main building blocks:
+
+### The `command` Object
+
+| Property      | Type     | Description                                                                  |
+| ------------- | -------- | ---------------------------------------------------------------------------- |
+| `name`        | `string` | The name of the command. Must be `^[a-zA-Z](?:-?[a-zA-Z])*$`. **(Required)** |
+| `alias`       | `string` | An alternative name for the command. Follows the same pattern as `name`.     |
+| `description` | `string` | A brief description of what the command does.                                |
+| `arguments`   | `array`  | An array of `argument` objects for this command.                             |
+| `options`     | `array`  | An array of `option` objects for this command.                               |
+| `commands`    | `array`  | An array of nested `command` objects (subcommands).                          |
+
+### The `argument` Object
+
+| Property      | Type      | Description                                                                   |
+| ------------- | --------- | ----------------------------------------------------------------------------- |
+| `name`        | `string`  | The name of the argument. Must be `^[a-zA-Z](?:-?[a-zA-Z])*$`. **(Required)** |
+| `description` | `string`  | A brief description of the argument.                                          |
+| `type`        | `string`  | The data type. Can be `string`, `number`, `boolean`. Defaults to `string`.    |
+| `required`    | `boolean` | Whether the argument is required. Defaults to `false`.                        |
+| `variadic`    | `boolean` | Whether the argument can accept multiple values. Defaults to `false`.         |
+
+### The `option` Object
+
+| Property      | Type     | Description                                                      |
+| ------------- | -------- | ---------------------------------------------------------------- |
+| `name`        | `string` | The long name of the option (e.g., `port`). **(Required)**       |
+| `short`       | `string` | The single-letter short alias (e.g., `p`). Must be `^[a-zA-Z]$`. |
+| `description` | `string` | A brief description of the option.                               |
+| `type`        | `string` | The data type. Can be `string`, `number`, `boolean`.             |
+
+## Examples
+
+Explore various CLI definition examples adhering to the `cli.schema.json` in the [EXAMPLES.md](EXAMPLES.md) file. These practical demonstrations showcase how to structure your CLI metadata declaratively, covering different scenarios from simple tools to complex command structures.
 
 ## Vision & Roadmap: Building the Ecosystem
 
