@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-const { validateYaml } = require('../src/validate');
+const path = require('path');
+const { validateYaml } = require(path.join(__dirname, '..', 'src', 'validate'));
 
 const args = process.argv.slice(2);
 

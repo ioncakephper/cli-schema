@@ -1,9 +1,10 @@
 const fs = require('fs');
+const path = require('path');
 const yaml = require('js-yaml');
 const Ajv = require('ajv');
 const addFormats = require('ajv-formats');
 
-const schema = require('../schema/cli.schema.json');
+const schema = require(path.join(__dirname, '..', 'schema', 'cli.schema.json'));
 
 const ajv = new Ajv({ allErrors: true, strict: false });
 addFormats(ajv);
