@@ -119,7 +119,25 @@ While the examples show a simple command, the schema is designed to handle enter
 
 ## Schema Reference
 
-All CLI definitions must be nested under a top-level `cli` object. This root object contains all the commands, arguments, and options that define your command-line interface.
+All CLI definitions must be nested under a top-level `cli` object. This root object is mandatory and serves as the container for all commands, arguments, and options that define your command-line interface. While other properties can exist alongside the `cli` object, they will not be validated by the schema.
+
+### The `cli` Object
+
+The `cli` object is the root of your CLI definition. It contains the following properties:
+
+| Property            | Type      | Description                                                                                                                                                                                            |
+| ------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `name`              | `string`  | The name of your CLI application. **(Required)**                                                                                                                                                       |
+| `version`           | `string`  | The version of your CLI. It is recommended to follow semantic versioning (e.g., `1.0.0`).                                                                                                              |
+| `description`       | `string`  | A brief description of your CLI's purpose.                                                                                                                                                             |
+| `sortCommands`      | `boolean` | If `true`, help output will display commands in alphabetical order.                                                                                                                                    |
+| `sortOptions`       | `boolean` | If `true`, help output will display options in alphabetical order.                                                                                                                                     |
+| `showGlobalOptions` | `boolean` | If `true`, global options will be displayed in the help output for subcommands.                                                                                                                        |
+| `defaultConfigFile` | `string`  | The path to a default configuration file that the CLI should load.                                                                                                                                     |
+| `fallbackConfig`    | `object`  | An object containing fallback configuration values to be used if the default configuration file is not found or does not contain a required value.                                                     |
+| `arguments`         | `array`   | An array of `argument` objects for the root command.                                                                                                                                                   |
+| `options`           | `array`   | An array of `option` objects for the root command.                                                                                                                                                     |
+| `commands`          | `array`   | An array of nested `command` objects (subcommands).                                                                                                                                                    |
 
 The `cli-schema` defines the structure for your CLI definition file. Here are the main building blocks:
 
