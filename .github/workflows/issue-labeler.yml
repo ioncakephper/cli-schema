@@ -7,9 +7,9 @@ jobs:
   label:
     runs-on: ubuntu-latest
     steps:
-      - uses: github/issue-labeler@v4
+      - uses: github/issue-labeler@v3.3
         with:
           configuration-path: .github/labeler.yml
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          enable-versioned-regex: true
+          # enable-versioned-regex: true
           sync-labels: true
