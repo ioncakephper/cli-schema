@@ -57,7 +57,6 @@
         "short": { "type": "string", "pattern": "^[a-zA-Z]$" },
         "description": { "type": "string" },
         "type": { "enum": ["string", "number", "boolean"] },
-        "variadic": { "type": "boolean" },
         "required": { "type": "boolean" },
         "choices": {
           "type": "array",

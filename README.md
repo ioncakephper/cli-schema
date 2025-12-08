@@ -119,7 +119,8 @@ While the examples show a simple command, the schema is designed to handle enter
 
 ## Schema Reference
 
-All CLI definitions must be nested under a top-level `cli` object. This root object is mandatory and serves as the container for all commands, arguments, and options that define your command-line interface. While other properties can exist alongside the `cli` object, they will not be validated by the schema.
+> [!IMPORTANT]
+> All CLI definitions must be nested under a top-level `cli` object. This root object is mandatory and serves as the container for all commands, arguments, and options that define your command-line interface. While other properties can exist alongside the `cli` object, they will not be validated by the schema.
 
 ### The `cli` Object
 
@@ -176,11 +177,11 @@ The `cli-schema` defines the structure for your CLI definition file. Here are th
 | `required`    | `boolean` | Whether the option is required. Defaults to `false`.                         |
 | `short`       | `string`  | The single-letter short alias (e.g., `p`). Must be `^[a-zA-Z]$`.             |
 | `type`        | `string`  | The data type. Can be `string`, `number`, `boolean`.                         |
-| `variadic`    | `boolean` | Whether the option can accept multiple values. Defaults to `false`.          |
 
 ### The `default` Object
 
-The `default` object is used to define a default value for an `argument` or `option`. It must have exactly one of the following properties:
+> [!IMPORTANT]
+> The `default` object is used to define a default value for an `argument` or `option`. It must have exactly one of the following properties:
 
 | Property     | Type                                           | Description                                                                                                   |
 | ------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
