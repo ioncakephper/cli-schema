@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/ioncakephper/cli-schema/compare/v2.1.0...v3.0.0) (2025-12-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **schema:** This commit introduces breaking changes.
+
+### Code Refactoring
+
+* **schema:** Remove `variadic` property from CLI options definition ([7f71cf1](https://github.com/ioncakephper/cli-schema/commit/7f71cf107da1f7822b3364b8655b4e311250a559))
+
 ## [2.1.0](https://github.com/ioncakephper/cli-schema/compare/v2.0.1...v2.1.0) (2025-12-08)
 
 
