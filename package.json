@@ -1,6 +1,6 @@
 {
   "name": "cli-schema",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Canonical JSON Schema for declarative CLI definitions",
   "keywords": [
     "cli",
