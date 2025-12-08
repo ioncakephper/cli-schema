@@ -1,0 +1,30 @@
+bug:
+  - "(?i)bug"
+  - "(?i)error"
+  - "(?i)exception"
+  - "(?i)crash"
+
+feature:
+  - "(?i)feature"
+  - "(?i)enhancement"
+  - "(?i)new functionality"
+
+documentation:
+  - "(?i)docs?"
+  - "(?i)readme"
+  - "(?i)documentation"
+
+question:
+  - "(?i)question"
+  - "(?i)how do i"
+  - "(?i)help"
+
+tests:
+  - "(?i)test"
+  - "(?i)unit test"
+  - "(?i)integration test"
+
+performance:
+  - "(?i)slow"
+  - "(?i)performance"
+  - "(?i)optimization"
