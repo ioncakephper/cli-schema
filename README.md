@@ -119,6 +119,8 @@ While the examples show a simple command, the schema is designed to handle enter
 
 ## Schema Reference
 
+All CLI definitions must be nested under a top-level `cli` object. This root object contains all the commands, arguments, and options that define your command-line interface.
+
 The `cli-schema` defines the structure for your CLI definition file. Here are the main building blocks:
 
 ### The `command` Object
