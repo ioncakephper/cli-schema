@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/ioncakephper/cli-schema/compare/v2.0.1...v2.1.0) (2025-12-08)
+
+
+### Features
+
+* **schema:** Enhance argument and option schema with default values, validation, and advanced options ([e96a42c](https://github.com/ioncakephper/cli-schema/commit/e96a42c9fee344ba3ba57714f48ac7ac420e731a))
+* **schema:** Enhance argument and option schema with default values, validation, and advanced options ([ce1c541](https://github.com/ioncakephper/cli-schema/commit/ce1c541b95e8cae636acdf32e412f97bccfd23bf))
+
 ## [2.0.1](https://github.com/ioncakephper/cli-schema/compare/v2.0.0...v2.0.1) (2025-12-08)
 
 
