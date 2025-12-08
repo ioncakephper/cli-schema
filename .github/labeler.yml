@@ -1,30 +1,36 @@
 bug:
-  - "(?i)bug"
-  - "(?i)error"
-  - "(?i)exception"
-  - "(?i)crash"
+
+  - "bug"
+  - "error"
+  - "exception"
+  - "crash"
 
 feature:
-  - "(?i)feature"
-  - "(?i)enhancement"
-  - "(?i)new functionality"
+
+  - "feature"
+  - "enhancement"
+  - "new functionality"
 
 documentation:
-  - "(?i)docs?"
-  - "(?i)readme"
-  - "(?i)documentation"
+
+  - "docs?"
+  - "readme"
+  - "documentation"
 
 question:
-  - "(?i)question"
-  - "(?i)how do i"
-  - "(?i)help"
+
+  - "question"
+  - "how do i"
+  - "help"
 
 tests:
-  - "(?i)test"
-  - "(?i)unit test"
-  - "(?i)integration test"
+
+  - "test"
+  - "unit test"
+  - "integration test"
 
 performance:
-  - "(?i)slow"
-  - "(?i)performance"
-  - "(?i)optimization"
+
+  - "slow"
+  - "performance"
+  - "optimization"
