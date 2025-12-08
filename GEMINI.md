@@ -14,6 +14,17 @@ The main technologies used are:
 - **Commander.js:** A library for building command-line interfaces in Node.js.
 - **ESLint and Prettier:** For code linting and formatting.
 
+### Public Schema Availability and IDE Integration
+
+The core `cli.schema.json` is publicly available via a CDN at `https://cdn.jsdelivr.net/npm/cli-schema@3.0.0/schema/cli.schema.json`. This public availability enables powerful integrations, particularly for IDEs. By including a special comment in YAML definition files, users can leverage:
+
+-   **Autocompletion:** Suggestions for command, argument, and option properties as they type.
+-   **Real-time Validation:** Instant feedback on structural errors or non-conformant values.
+-   **Contextual Documentation:** Hover-over descriptions for schema properties directly in the editor.
+
+This is achieved by adding a directive like `# yaml-language-server: $schema=https://cdn.jsdelivr.net/npm/cli-schema@3.0.0/schema/cli.schema.json` to the top of YAML files.
+
+
 ## Building and Running
 
 ### Installation
