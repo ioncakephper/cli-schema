@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/npm/cli-schema@3.0.0/schema/cli.schema.json
+
 # Defines the 'npm install', 'npm init', and 'npm version' commands using the canonical CLI schema.
 # This serves as a practical example of describing common Node.js CLI operations.
 cli:

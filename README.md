@@ -102,6 +102,30 @@ if (result.valid) {
 }
 ```
 
+### Schema-Driven Development in your IDE
+
+To get autocompletion and real-time validation when writing your CLI definition files, you can link the schema directly in your YAML file. Most modern editors (like VS Code with the [YAML extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)) support this via a special comment.
+
+Add the following line to the top of your YAML file:
+
+```yaml
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/npm/cli-schema@3.0.0/schema/cli.schema.json
+
+cli:
+  name: my-cli
+  description: A sample CLI defined with cli-schema.
+  version: 1.0.0
+  # ... rest of your definition
+```
+
+By adding this comment, your editor will provide:
+
+- **Autocompletion** for all properties (`name`, `commands`, `options`, etc.).
+- **Validation** to catch typos and structural errors as you type.
+- **Descriptions** on hover for each property.
+
+> **Note:** For the latest schema, you can use `.../npm/cli-schema/schema/cli.schema.json`, but using a specific version is recommended for stability.
+
 ### Scaling with Complexity
 
 While the examples show a simple command, the schema is designed to handle enterprise-grade CLIs with dozens of nested commands, complex options, and varied argument structures. Advanced features like command hierarchies, option dependencies, and reusable type definitions are modeled directly in the schema, ensuring that it scales with your project's needs without sacrificing clarity.
@@ -126,19 +150,19 @@ While the examples show a simple command, the schema is designed to handle enter
 
 The `cli` object is the root of your CLI definition. It contains the following properties:
 
-| Property            | Type      | Description                                                                                                                                                                                            |
-| ------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `arguments`         | `array`   | An array of `argument` objects for the root command.                                                                                                                                                   |
-| `commands`          | `array`   | An array of nested `command` objects (subcommands).                                                                                                                                                    |
-| `defaultConfigFile` | `string`  | The path to a default configuration file that the CLI should load.                                                                                                                                     |
-| `description`       | `string`  | A brief description of your CLI's purpose.                                                                                                                                                             |
-| `fallbackConfig`    | `object`  | An object containing fallback configuration values to be used if the default configuration file is not found or does not contain a required value.                                                     |
-| `name`              | `string`  | The name of your CLI application. **(Required)**                                                                                                                                                       |
-| `options`           | `array`   | An array of `option` objects for the root command.                                                                                                                                                     |
-| `showGlobalOptions` | `boolean` | If `true`, global options will be displayed in the help output for subcommands.                                                                                                                        |
-| `sortCommands`      | `boolean` | If `true`, help output will display commands in alphabetical order.                                                                                                                                    |
-| `sortOptions`       | `boolean` | If `true`, help output will display options in alphabetical order.                                                                                                                                     |
-| `version`           | `string`  | The version of your CLI. It is recommended to follow semantic versioning (e.g., `1.0.0`).                                                                                                              |
+| Property            | Type      | Description                                                                                                                                        |
+| ------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `arguments`         | `array`   | An array of `argument` objects for the root command.                                                                                               |
+| `commands`          | `array`   | An array of nested `command` objects (subcommands).                                                                                                |
+| `defaultConfigFile` | `string`  | The path to a default configuration file that the CLI should load.                                                                                 |
+| `description`       | `string`  | A brief description of your CLI's purpose.                                                                                                         |
+| `fallbackConfig`    | `object`  | An object containing fallback configuration values to be used if the default configuration file is not found or does not contain a required value. |
+| `name`              | `string`  | The name of your CLI application. **(Required)**                                                                                                   |
+| `options`           | `array`   | An array of `option` objects for the root command.                                                                                                 |
+| `showGlobalOptions` | `boolean` | If `true`, global options will be displayed in the help output for subcommands.                                                                    |
+| `sortCommands`      | `boolean` | If `true`, help output will display commands in alphabetical order.                                                                                |
+| `sortOptions`       | `boolean` | If `true`, help output will display options in alphabetical order.                                                                                 |
+| `version`           | `string`  | The version of your CLI. It is recommended to follow semantic versioning (e.g., `1.0.0`).                                                          |
 
 The `cli-schema` defines the structure for your CLI definition file. Here are the main building blocks:
 
@@ -166,28 +190,28 @@ The `cli-schema` defines the structure for your CLI definition file. Here are th
 
 ### The `option` Object
 
-| Property      | Type      | Description                                                                  |
-| ------------- | --------- | ---------------------------------------------------------------------------- |
-| `arguments`   | `array`   | An array of `argument` objects that can be associated with this option.      |
-| `choices`     | `array`   | A list of allowed values for the option.                                     |
-| `default`     | `object`  | A `default` object defining the default value for this option.               |
-| `description` | `string`  | A brief description of the option.                                           |
-| `name`        | `string`  | The long name of the option (e.g., `port`). **(Required)**                   |
-| `range`       | `object`  | A numerical range with `min` and `max` properties for the option's value.    |
-| `required`    | `boolean` | Whether the option is required. Defaults to `false`.                         |
-| `short`       | `string`  | The single-letter short alias (e.g., `p`). Must be `^[a-zA-Z]$`.             |
-| `type`        | `string`  | The data type. Can be `string`, `number`, `boolean`.                         |
+| Property      | Type      | Description                                                               |
+| ------------- | --------- | ------------------------------------------------------------------------- |
+| `arguments`   | `array`   | An array of `argument` objects that can be associated with this option.   |
+| `choices`     | `array`   | A list of allowed values for the option.                                  |
+| `default`     | `object`  | A `default` object defining the default value for this option.            |
+| `description` | `string`  | A brief description of the option.                                        |
+| `name`        | `string`  | The long name of the option (e.g., `port`). **(Required)**                |
+| `range`       | `object`  | A numerical range with `min` and `max` properties for the option's value. |
+| `required`    | `boolean` | Whether the option is required. Defaults to `false`.                      |
+| `short`       | `string`  | The single-letter short alias (e.g., `p`). Must be `^[a-zA-Z]$`.          |
+| `type`        | `string`  | The data type. Can be `string`, `number`, `boolean`.                      |
 
 ### The `default` Object
 
 > [!IMPORTANT]
 > The `default` object is used to define a default value for an `argument` or `option`. It must have exactly one of the following properties:
 
-| Property     | Type                                           | Description                                                                                                   |
-| ------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Property     | Type                                             | Description                                                                                                   |
+| ------------ | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
 | `value`      | `string`, `number`, `boolean`, `array`, `object` | A literal value to use as the default.                                                                        |
-| `fromConfig` | `string`                                       | A dot-notation path to retrieve a value from a configuration file (e.g., `user.name`).                        |
-| `fn`         | `string`                                       | A JavaScript arrow function that returns the default value. The `program` object is available as an argument. |
+| `fromConfig` | `string`                                         | A dot-notation path to retrieve a value from a configuration file (e.g., `user.name`).                        |
+| `fn`         | `string`                                         | A JavaScript arrow function that returns the default value. The `program` object is available as an argument. |
 
 ## Examples
 

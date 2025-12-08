@@ -1,5 +1,5 @@
 {
-  "$id": "https://example.com/cli.schema.json",
+  "$id": "https://cdn.jsdelivr.net/npm/cli-schema@3.0.0/schema/cli.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "CLI Schema",
   "description": "Canonical schema for declarative CLI definitions",

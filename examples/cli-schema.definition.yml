@@ -1,7 +1,9 @@
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/npm/cli-schema@3.0.0/schema/cli.schema.json
+
 # This file defines the 'cli-schema' command-line tool itself,
 # using the canonical schema.
 cli:
-  command: cli-schema
+  name: cli-schema
   description: Canonical JSON Schema for declarative CLI definitions
   version: '1.0.6'
 
@@ -19,10 +21,8 @@ cli:
   # These are standard options automatically provided by commander.js.
   options:
     - name: help
-      alias: h
+      short: h
       description: display help for command
-      type: boolean
     - name: version
-      alias: V
+      short: V
       description: output the version number
-      type: boolean
