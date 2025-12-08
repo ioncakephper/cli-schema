@@ -21,6 +21,10 @@ program
   .description(packageJson.description)
   .version(packageJson.version);
 
+program
+  .option('-v, --verbose', 'Enable verbose output')
+  .option('-d, --debug', 'Enable debug output');
+
 program.configureHelp({
   sortSubcommands: true,
   sortOptions: true,
