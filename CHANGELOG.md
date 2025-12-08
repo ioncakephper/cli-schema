@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.1](https://github.com/ioncakephper/cli-schema/compare/v2.0.0...v2.0.1) (2025-12-08)
+
+
+### Bug Fixes
+
+* **schema:** Add detailed reference for the root `cli` object ([ef34155](https://github.com/ioncakephper/cli-schema/commit/ef341556a93dc87040b69e934a04e63801318949))
+* **schema:** Add detailed reference for the root `cli` object ([b67988d](https://github.com/ioncakephper/cli-schema/commit/b67988d27553fd0fe010472a9905b19961a12e4d))
+
 ## [2.0.0](https://github.com/ioncakephper/cli-schema/compare/v1.1.0...v2.0.0) (2025-12-08)
 
 
