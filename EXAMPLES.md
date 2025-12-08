@@ -20,31 +20,32 @@ This file provides a self-referential example, defining the `cli-schema` command
 ```yaml
 # This file defines the 'cli-schema' command-line tool itself,
 # using the canonical schema.
-command: cli-schema
-description: Canonical JSON Schema for declarative CLI definitions
-version: '1.0.6'
+cli:
+  command: cli-schema
+  description: Canonical JSON Schema for declarative CLI definitions
+  version: '1.0.6'
 
-# Defines the positional arguments for the command.
-arguments:
-  - name: filesToValidate
-    description: One or more files to validate against the schema.
-    type: string
-    # 'required: false' makes this argument optional, equivalent to [files...].
-    # If this was 'required: true', it would be equivalent to <files...>.
-    required: false
-    variadic: true
+  # Defines the positional arguments for the command.
+  arguments:
+    - name: filesToValidate
+      description: One or more files to validate against the schema.
+      type: string
+      # 'required: false' makes this argument optional, equivalent to [files...].
+      # If this was 'required: true', it would be equivalent to <files...>.
+      required: false
+      variadic: true
 
-# Defines the options (flags) for the command.
-# These are standard options automatically provided by commander.js.
-options:
-  - name: help
-    short: h
-    description: Display help for command
-    type: boolean
-  - name: version
-    short: V
-    description: Output the version number
-    type: boolean
+  # Defines the options (flags) for the command.
+  # These are standard options automatically provided by commander.js.
+  options:
+    - name: help
+      short: h
+      description: Display help for command
+      type: boolean
+    - name: version
+      short: V
+      description: Output the version number
+      type: boolean
 ```
 
 ---
