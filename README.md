@@ -127,17 +127,17 @@ The `cli` object is the root of your CLI definition. It contains the following p
 
 | Property            | Type      | Description                                                                                                                                                                                            |
 | ------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `name`              | `string`  | The name of your CLI application. **(Required)**                                                                                                                                                       |
-| `version`           | `string`  | The version of your CLI. It is recommended to follow semantic versioning (e.g., `1.0.0`).                                                                                                              |
+| `arguments`         | `array`   | An array of `argument` objects for the root command.                                                                                                                                                   |
+| `commands`          | `array`   | An array of nested `command` objects (subcommands).                                                                                                                                                    |
+| `defaultConfigFile` | `string`  | The path to a default configuration file that the CLI should load.                                                                                                                                     |
 | `description`       | `string`  | A brief description of your CLI's purpose.                                                                                                                                                             |
+| `fallbackConfig`    | `object`  | An object containing fallback configuration values to be used if the default configuration file is not found or does not contain a required value.                                                     |
+| `name`              | `string`  | The name of your CLI application. **(Required)**                                                                                                                                                       |
+| `options`           | `array`   | An array of `option` objects for the root command.                                                                                                                                                     |
+| `showGlobalOptions` | `boolean` | If `true`, global options will be displayed in the help output for subcommands.                                                                                                                        |
 | `sortCommands`      | `boolean` | If `true`, help output will display commands in alphabetical order.                                                                                                                                    |
 | `sortOptions`       | `boolean` | If `true`, help output will display options in alphabetical order.                                                                                                                                     |
-| `showGlobalOptions` | `boolean` | If `true`, global options will be displayed in the help output for subcommands.                                                                                                                        |
-| `defaultConfigFile` | `string`  | The path to a default configuration file that the CLI should load.                                                                                                                                     |
-| `fallbackConfig`    | `object`  | An object containing fallback configuration values to be used if the default configuration file is not found or does not contain a required value.                                                     |
-| `arguments`         | `array`   | An array of `argument` objects for the root command.                                                                                                                                                   |
-| `options`           | `array`   | An array of `option` objects for the root command.                                                                                                                                                     |
-| `commands`          | `array`   | An array of nested `command` objects (subcommands).                                                                                                                                                    |
+| `version`           | `string`  | The version of your CLI. It is recommended to follow semantic versioning (e.g., `1.0.0`).                                                                                                              |
 
 The `cli-schema` defines the structure for your CLI definition file. Here are the main building blocks:
 
@@ -145,31 +145,48 @@ The `cli-schema` defines the structure for your CLI definition file. Here are th
 
 | Property      | Type     | Description                                                                  |
 | ------------- | -------- | ---------------------------------------------------------------------------- |
-| `name`        | `string` | The name of the command. Must be `^[a-zA-Z](?:-?[a-zA-Z])*$`. **(Required)** |
 | `alias`       | `string` | An alternative name for the command. Follows the same pattern as `name`.     |
-| `description` | `string` | A brief description of what the command does.                                |
 | `arguments`   | `array`  | An array of `argument` objects for this command.                             |
-| `options`     | `array`  | An array of `option` objects for this command.                               |
 | `commands`    | `array`  | An array of nested `command` objects (subcommands).                          |
+| `description` | `string` | A brief description of what the command does.                                |
+| `name`        | `string` | The name of the command. Must be `^[a-zA-Z](?:-?[a-zA-Z])*$`. **(Required)** |
+| `options`     | `array`  | An array of `option` objects for this command.                               |
 
 ### The `argument` Object
 
 | Property      | Type      | Description                                                                   |
 | ------------- | --------- | ----------------------------------------------------------------------------- |
-| `name`        | `string`  | The name of the argument. Must be `^[a-zA-Z](?:-?[a-zA-Z])*$`. **(Required)** |
+| `default`     | `object`  | A `default` object defining the default value for this argument.              |
 | `description` | `string`  | A brief description of the argument.                                          |
-| `type`        | `string`  | The data type. Can be `string`, `number`, `boolean`. Defaults to `string`.    |
+| `name`        | `string`  | The name of the argument. Must be `^[a-zA-Z](?:-?[a-zA-Z])*$`. **(Required)** |
 | `required`    | `boolean` | Whether the argument is required. Defaults to `false`.                        |
+| `type`        | `string`  | The data type. Can be `string`, `number`, `boolean`. Defaults to `string`.    |
 | `variadic`    | `boolean` | Whether the argument can accept multiple values. Defaults to `false`.         |
 
 ### The `option` Object
 
-| Property      | Type     | Description                                                      |
-| ------------- | -------- | ---------------------------------------------------------------- |
-| `name`        | `string` | The long name of the option (e.g., `port`). **(Required)**       |
-| `short`       | `string` | The single-letter short alias (e.g., `p`). Must be `^[a-zA-Z]$`. |
-| `description` | `string` | A brief description of the option.                               |
-| `type`        | `string` | The data type. Can be `string`, `number`, `boolean`.             |
+| Property      | Type      | Description                                                                  |
+| ------------- | --------- | ---------------------------------------------------------------------------- |
+| `arguments`   | `array`   | An array of `argument` objects that can be associated with this option.      |
+| `choices`     | `array`   | A list of allowed values for the option.                                     |
+| `default`     | `object`  | A `default` object defining the default value for this option.               |
+| `description` | `string`  | A brief description of the option.                                           |
+| `name`        | `string`  | The long name of the option (e.g., `port`). **(Required)**                   |
+| `range`       | `object`  | A numerical range with `min` and `max` properties for the option's value.    |
+| `required`    | `boolean` | Whether the option is required. Defaults to `false`.                         |
+| `short`       | `string`  | The single-letter short alias (e.g., `p`). Must be `^[a-zA-Z]$`.             |
+| `type`        | `string`  | The data type. Can be `string`, `number`, `boolean`.                         |
+| `variadic`    | `boolean` | Whether the option can accept multiple values. Defaults to `false`.          |
+
+### The `default` Object
+
+The `default` object is used to define a default value for an `argument` or `option`. It must have exactly one of the following properties:
+
+| Property     | Type                                           | Description                                                                                                   |
+| ------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `value`      | `string`, `number`, `boolean`, `array`, `object` | A literal value to use as the default.                                                                        |
+| `fromConfig` | `string`                                       | A dot-notation path to retrieve a value from a configuration file (e.g., `user.name`).                        |
+| `fn`         | `string`                                       | A JavaScript arrow function that returns the default value. The `program` object is available as an argument. |
 
 ## Examples
 
