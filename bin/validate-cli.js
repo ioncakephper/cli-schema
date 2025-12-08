@@ -59,15 +59,23 @@ Examples:
  * It validates the provided files or displays help if no files are specified.
  * @param {string[]} filesToValidate - An array of file paths to be validated.
  */
-program.action((filesToValidate) => {
+program.action((filesToValidate, options) => {
   if (filesToValidate.length === 0) {
     program.outputHelp();
     process.exit(0); // Exit gracefully after showing help
   }
 
+  const { verbose, debug } = options;
+
   for (const fileName of filesToValidate) {
     const originalPath = fileName;
+    if (verbose) {
+      console.log(`Validating: ${originalPath}`);
+    }
     const absolutePath = path.resolve(originalPath);
+    if (debug) {
+      console.log(`Resolved to: ${absolutePath}`);
+    }
 
     try {
       const result = validateYaml(absolutePath);
