@@ -126,5 +126,6 @@
       ],
       "additionalProperties": false
     }
-  }
+  },
+  "required": ["cli"]
 }
