@@ -1,3 +1,11 @@
+# Name: Release Please Workflow
+# Description: This workflow uses the googleapis/release-please-action to automate
+#              the release process. It analyzes commits since the last release,
+#              determines the next semantic version, and creates a pull request
+#              with a changelog.
+# Purpose: Automate versioning and the creation of release pull requests.
+# Triggers: Push to the 'main' branch.
+
 name: release-please
 
 on:

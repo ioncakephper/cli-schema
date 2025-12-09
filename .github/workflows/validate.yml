@@ -1,3 +1,10 @@
+# Name: Validate CLI Schema Workflow
+# Description: This workflow runs tests to validate the CLI schema against example
+#              YAML files. It ensures that the schema and the validation logic are
+#              working correctly.
+# Purpose: Maintain the integrity of the schema and its validation rules.
+# Triggers: Push or pull request involving changes to 'examples/*.yml' or 'schema/*.json'.
+
 name: Validate CLI Schema
 
 on:

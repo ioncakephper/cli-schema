@@ -1,3 +1,10 @@
+# Name: Issue Labeler Workflow
+# Description: This workflow uses the github/issue-labeler action to automatically
+#              add labels to new and edited issues based on keywords found in the
+#              issue's title and body.
+# Purpose: Automate issue triage and categorization.
+# Triggers: An issue is opened or edited.
+
 name: Issue Labeler
 
 on:
