@@ -1,4 +1,9 @@
-# This workflow will do a clean install and then execute format and lint checks.
+# Name: Node.js Lint & Format Workflow
+# Description: This workflow automates code style and quality checks using Prettier for formatting
+#              and ESLint for linting. It ensures that all pushed code adheres to the project's
+#              defined style guides before merging into the main branch.
+# Purpose: Maintain code consistency and prevent common errors.
+# Triggers: Push to 'main' branch, or pull requests targeting 'main' branch.
 
 name: Node.js Lint & Format
 
