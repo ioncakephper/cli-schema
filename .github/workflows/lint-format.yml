@@ -1,6 +1,6 @@
 # This workflow will do a clean install, and then execute the format and lint
 
-name: Node.js CI
+name: Node.js Lint & Format
 
 on:
   push:
