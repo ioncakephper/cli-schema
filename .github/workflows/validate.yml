@@ -3,17 +3,25 @@ name: Validate CLI Schema
 on:
   push:
     paths:
-      - 'examples/*.yml'
-      - 'schema/*.json'
+      - "examples/*.yml"
+      - "schema/*.json"
   pull_request:
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js and cache npm dependencies
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - run: npm install
-      - run: npm test
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test

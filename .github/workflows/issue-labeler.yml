@@ -1,13 +1,24 @@
 name: Issue Labeler
+
 on:
   issues:
     types: [opened, edited]
 
+# Ensures that only the latest run for a given issue will proceed.
+concurrency:
+  group: ${{ github.repository }}-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
 jobs:
   label:
     runs-on: ubuntu-latest
+    # The token needs permission to write to issues to add labels.
+    permissions:
+      issues: write
     steps:
-      - uses: github/issue-labeler@v3.3
+      # This action can read the config file from the repository without a checkout.
+      - name: Label issues based on keywords
+        uses: github/issue-labeler@v3.3
         with:
           configuration-path: .github/labeler.yml
           repo-token: ${{ secrets.GITHUB_TOKEN }}
