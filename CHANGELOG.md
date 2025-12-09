@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/ioncakephper/cli-schema/compare/v3.0.1...v3.1.0) (2025-12-09)
+
+
+### Features
+
+* Add GEMINI.md, update gitignore, and improve CI workflows ([b4bb433](https://github.com/ioncakephper/cli-schema/commit/b4bb433967c06558a4b18701b714832e9df87722))
+
 ## [3.0.0](https://github.com/ioncakephper/cli-schema/compare/v2.1.0...v3.0.0) (2025-12-08)
 
 ### ⚠ BREAKING CHANGES
