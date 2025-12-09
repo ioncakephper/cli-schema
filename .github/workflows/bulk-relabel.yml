@@ -1,0 +1,48 @@
+# Name: Bulk Re-label Issues
+# Description: This workflow manually triggers the issue-labeler action on all open issues.
+#              It does this by making a no-op edit to each issue, which fires the 'edited'
+#              event that the main issue-labeler workflow listens for.
+# Purpose: To force a re-labeling of all existing open issues.
+# Triggers: Manual trigger from the GitHub Actions UI ('workflow_dispatch').
+
+name: Bulk Re-label Issues
+
+on:
+  workflow_dispatch:
+
+jobs:
+  re-label:
+    runs-on: ubuntu-latest
+    # Permissions needed to list and edit issues.
+    permissions:
+      issues: write
+    steps:
+      - name: Re-trigger labeler for all open issues
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          echo "Fetching all open issue numbers..."
+          issue_numbers=$(gh issue list --state open --json number --jq '.[].number')
+
+          if [ -z "$issue_numbers" ]; then
+            echo "No open issues found."
+            exit 0
+          fi
+
+          echo "Found issues: $issue_numbers"
+          echo "Looping through issues and triggering the 'edited' event..."
+
+          for num in $issue_numbers; do
+            echo "Processing issue #$num..."
+            # Get the current body of the issue
+            body=$(gh issue view "$num" --json body --jq '.body')
+            # Perform a no-op edit to trigger the 'edited' event.
+            # This simply replaces the body with itself.
+            gh issue edit "$num" --body "$body"
+            echo "  ...triggered labeler for #$num."
+            # Sleep for a moment to avoid hitting API rate limits.
+            sleep 2
+          done
+
+          echo "Successfully triggered re-labeling for all open issues."
