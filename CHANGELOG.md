@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/ioncakephper/cli-schema/compare/v3.1.0...v3.2.0) (2025-12-09)
+
+
+### Features
+
+* Add bulk-relabel workflow ([e61d8b7](https://github.com/ioncakephper/cli-schema/commit/e61d8b79908a263249c2431b2a3c1489b9a045ad))
+
 ## [3.1.0](https://github.com/ioncakephper/cli-schema/compare/v3.0.1...v3.1.0) (2025-12-09)
 
 
